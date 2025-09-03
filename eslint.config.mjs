@@ -31,6 +31,29 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
+      // Relax some strict NestJS typed plugin rules to avoid blocking upgrades
+      '@darraghor/nestjs-typed/injectable-should-be-provided': 'off',
+      '@darraghor/nestjs-typed/should-specify-forbid-unknown-values': 'off',
+      '@darraghor/nestjs-typed/api-method-should-specify-api-response': 'off',
+      '@darraghor/nestjs-typed/api-property-matches-property-optionality':
+        'warn',
+    },
+  },
+  {
+    files: ['**/*.spec.ts', 'test/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
+      '@typescript-eslint/unbound-method': 'off',
+      '@typescript-eslint/require-await': 'off',
+      '@typescript-eslint/no-misused-promises': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
     },
   },
 );

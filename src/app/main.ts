@@ -11,7 +11,9 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle(server.config.name)
-    .setDescription(`API documentation for the ${server.config.name} application`)
+    .setDescription(
+      `API documentation for the ${server.config.name} application`,
+    )
     .setVersion('1.0')
     .addBearerAuth()
     .build();
@@ -19,12 +21,14 @@ async function bootstrap() {
   const documentFactory = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
 
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
-    transform: true,
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
   await app.listen(server.config.port);
 }
-bootstrap();
+void bootstrap();

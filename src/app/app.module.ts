@@ -8,7 +8,10 @@ import { HealthModule } from 'src/modules/health/health.module';
 import { UserModule } from 'src/modules/users/user.module';
 
 @Module({
-  imports: [HealthModule, UserModule, AuthModule,
+  imports: [
+    HealthModule,
+    UserModule,
+    AuthModule,
     ThrottlerModule.forRoot({
       throttlers: [
         {
@@ -30,4 +33,4 @@ import { UserModule } from 'src/modules/users/user.module';
     },
   ],
 })
-export class AppModule { }
+export class AppModule {}
